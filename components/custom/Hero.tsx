@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
           <motion.h1
             variants={item}
             data-cursor="text"
-            className="text-5xl md:text-8xl lg:text-9xl font-serif leading-[0.9] font-medium"
+            className="text-5xl text-white md:text-8xl lg:text-9xl font-serif leading-[0.9] font-medium"
           >
             Crafting <br />
             <span className="italic text-slate-400">Digital</span> <br />
