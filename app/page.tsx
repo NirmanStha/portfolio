@@ -1,9 +1,10 @@
+import { SKILLS } from "@/components/constants";
 import CustomCursor from "@/components/custom/Cursor";
 import Hero from "@/components/custom/Hero";
 import IntroLoader from "@/components/custom/Intro";
 import Project from "@/components/custom/Project";
+import Skill from "@/components/custom/Skill";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <main>
           <Hero />
           <Project />
+          <Skill />
         </main>
       </div>
     </>

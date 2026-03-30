@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ delay: 3, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute right-0 bottom-0 w-[1px] h-32 bg-indigo-500/50 origin-top hidden md:block"
+        className="absolute right-0 bottom-0 w-px h-32 bg-indigo-500/50 origin-top hidden md:block"
       />
     </section>
   );

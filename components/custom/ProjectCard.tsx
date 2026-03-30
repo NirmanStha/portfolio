@@ -125,7 +125,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       <CardFooter className="mt-5 px-0 pb-0 flex items-center justify-between gap-4">
         <h3
           className={cn(
-            "font-serif text-[clamp(1.25rem,2.8vw,1.65rem)] font-normal leading-tight",
+            "font-serif text-[clamp(1.25rem,2.8vw,1.65rem)] font-normal leading-tight text-primary-foreground",
             "transition-[letter-spacing,font-style,transform] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
             hovered
               ? "italic tracking-[0.01em] translate-x-1.5"
@@ -141,7 +141,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             "transition-[transform,background-color,border-color,color] duration-350 ease-[cubic-bezier(0.16,1,0.3,1)]",
             hovered
               ? "translate-x-1 -translate-y-1 bg-foreground border-foreground text-background border"
-              : "translate-x-0 translate-y-0 bg-secondary border-border/50 text-foreground border border-[0.5px]",
+              : "translate-x-0 translate-y-0 bg-secondary border-border/50 text-foreground border ",
           )}
         >
           <svg
