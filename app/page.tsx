@@ -1,9 +1,11 @@
 import { SKILLS } from "@/components/constants";
 import CustomCursor from "@/components/custom/Cursor";
+import Experience from "@/components/custom/Experience";
 import Hero from "@/components/custom/Hero";
 import IntroLoader from "@/components/custom/Intro";
 import Project from "@/components/custom/Project";
 import Skill from "@/components/custom/Skill";
+import ContactForm from "@/components/custom/ContactForm";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
@@ -18,6 +20,10 @@ export default function Home() {
           <Hero />
           <Project />
           <Skill />
+          <Experience />
+          <div className="mt-12 px-6 md:px-0">
+            <ContactForm />
+          </div>
         </main>
       </div>
     </>

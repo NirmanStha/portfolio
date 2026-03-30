@@ -11,10 +11,19 @@ export interface Experience {
   company: string;
   role: string;
   period: string;
-  description: string[];
+  location: string;
+  bullets: string[];
 }
 
 export interface Skill {
   name: string;
-  category: "Frontend" | "Backend" | "Tools" | "Design";
+  icon?: string;
+  color?: string;
+  shadow?: string;
+  glow?: string;
+  accent?: string;
+  pillBg?: string;
+  pillBorder?: string;
+  years: number;
+  category: "Frontend" | "Backend" | "Tools" | "Design" | "Creative";
 }
