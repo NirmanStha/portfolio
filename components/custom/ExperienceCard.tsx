@@ -20,7 +20,7 @@ function ExperienceCard({ exp, idx }: { exp: Exp; idx: number }) {
       transition={{ duration: 0.8, delay: idx * 0.08 }}
       data-cursor="view"
     >
-      <Card className="rounded-[18px] p-6 bg-[#0a0a0f] border-0">
+      <Card className="rounded-[18px] p-6 bg-white/10 backdrop-blur-md border border-white/20 shadow-md hover:shadow-lg transition-shadow duration-200">
         <CardContent className="p-0">
           <div className="mb-4">
             <h3 className="font-serif text-lg md:text-xl text-white">

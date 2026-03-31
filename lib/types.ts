@@ -24,6 +24,6 @@ export interface Skill {
   accent?: string;
   pillBg?: string;
   pillBorder?: string;
-  years: number;
+  years?: number;
   category: "Frontend" | "Backend" | "Tools" | "Design" | "Creative";
 }
