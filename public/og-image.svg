@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="550" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(860 180) rotate(90) scale(260 260)">
+      <stop stop-color="#38bdf8" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(340 460) rotate(90) scale(280 280)">
+      <stop stop-color="#a78bfa" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="860" cy="180" r="260" fill="url(#glow1)"/>
+  <circle cx="340" cy="460" r="280" fill="url(#glow2)"/>
+  <rect x="80" y="80" width="1040" height="470" rx="36" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.10)"/>
+  <circle cx="180" cy="180" r="58" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)"/>
+  <text x="180" y="198" text-anchor="middle" dominant-baseline="middle" font-family="Inter, Arial, Helvetica, sans-serif" font-size="60" font-weight="800" fill="#e2e8f0">N</text>
+  <text x="275" y="170" font-family="Inter, Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#f8fafc">Nirman Shrestha</text>
+  <text x="275" y="222" font-family="Inter, Arial, Helvetica, sans-serif" font-size="22" fill="#94a3b8">Frontend Engineer • React • Next.js • TypeScript</text>
+  <text x="100" y="380" font-family="Inter, Arial, Helvetica, sans-serif" font-size="72" font-weight="700" fill="#f8fafc">Crafting digital experiences</text>
+  <text x="100" y="442" font-family="Inter, Arial, Helvetica, sans-serif" font-size="28" fill="#cbd5e1">High-performance interfaces with motion, clarity, and attention to detail.</text>
+</svg>

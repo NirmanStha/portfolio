@@ -50,6 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             src={project.image}
             alt={project.title}
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className={cn(
               "w-full h-full object-cover block will-change-transform",
               "transition-[transform,opacity,filter] duration-1200 ease-[cubic-bezier(0.16,1,0.3,1)]",
