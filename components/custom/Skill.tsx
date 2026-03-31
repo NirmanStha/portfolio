@@ -94,7 +94,7 @@ const Skill = () => {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-[13px] text-white/30 mb-4">
-            Impressed? Let's build something extraordinary together.
+            Impressed? Let&apos;s build something extraordinary together.
           </p>
           <a
             href="mailto:you@example.com"

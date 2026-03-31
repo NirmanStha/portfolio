@@ -184,6 +184,18 @@ export const SKILLS: Skill[] = [
     pillBg: "rgba(51,103,145,.12)",
     pillBorder: "rgba(51,103,145,.3)",
   },
+  {
+    name: "MySQL",
+    category: "Backend",
+    years: 1,
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    color: "#4479a1",
+    shadow: "rgba(68,121,161,.25)",
+    glow: "rgba(68,121,161,.14)",
+    accent: "#7fb0d6",
+    pillBg: "rgba(68,121,161,.12)",
+    pillBorder: "rgba(68,121,161,.3)",
+  },
   // {
   //   name: "GraphQL",
   //   category: "Backend",

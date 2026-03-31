@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { Project } from "@/lib/types";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: Project;
@@ -45,9 +46,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       >
         <CardContent className="relative w-full h-full p-0">
           {/* Image — all transitions declared once, no whileHover */}
-          <img
+          <Image
             src={project.image}
             alt={project.title}
+            fill
             className={cn(
               "w-full h-full object-cover block will-change-transform",
               "transition-[transform,opacity,filter] duration-1200 ease-[cubic-bezier(0.16,1,0.3,1)]",

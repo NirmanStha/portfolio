@@ -113,7 +113,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
             : "0.5px solid rgba(255,255,255,0.07)",
         }}
       >
-        {skill.years}yr{skill.years > 1 ? "s" : ""}
+        {skill?.years}yr
       </span>
     </motion.div>
   );

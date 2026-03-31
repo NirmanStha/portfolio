@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import { motion } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ExperienceEntry } from "@/lib/experienceTypes";
 import { dedupeTech, highlightText } from "@/lib/experienceUtils";
+import { motion } from "motion/react";
 
 type TimelineCardProps = {
   entry: ExperienceEntry;
@@ -20,7 +19,7 @@ type TimelineCardProps = {
 export default function TimelineCard({
   entry,
   index,
-  side,
+
   expanded,
   toggle,
   globalTech,

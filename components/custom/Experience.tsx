@@ -3,7 +3,6 @@
 import { EXPERIENCES as DEFAULT_EXPERIENCES } from "@/components/constants";
 import { ExperienceProps } from "@/lib/experienceTypes";
 import TimelineCard from "@/components/custom/TimelineCard";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "motion/react";
 import { useState } from "react";
 
@@ -19,13 +18,14 @@ export default function Experience({
 
   return (
     <section id="experience" className="py-28 px-6 md:px-20 relative">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="mb-12"
+          className="mb-16"
         >
           <p className="text-[11px] font-medium tracking-[.18em] uppercase text-white/30 mb-3">
             Where I shipped
@@ -35,45 +35,70 @@ export default function Experience({
           </h2>
         </motion.div>
 
-        {/* Tabs per company */}
-        <Tabs defaultValue={`tab-0`} orientation="vertical" className="mt-6">
-          <div className="flex flex-col md:flex-row gap-6">
-            <TabsList
-              className="w-full md:w-56 flex md:flex-col gap-2 overflow-auto"
-              variant="line"
-            >
-              {experiences.map((exp, idx) => (
-                <TabsTrigger
-                  key={idx}
-                  value={`tab-${idx}`}
-                  className="whitespace-nowrap text-white/60 opacity-100 data-active:text-white data-active:opacity-100 text-left px-3 py-2 rounded-md data-active:bg-white/50 hover:bg-white/50 hover:text-white transition-colors duration-200"
-                >
-                  {exp.company}
-                </TabsTrigger>
-              ))}
-            </TabsList>
+        {/* Timeline */}
+        <div className="relative border-l border-white/10 pl-6 space-y-12">
+          {experiences.map((exp, idx) => {
+            const isOpen = expanded[idx];
 
-            <div className="flex-1">
-              {experiences.map((exp, idx) => (
-                <TabsContent key={idx} value={`tab-${idx}`}>
-                  <TimelineCard
-                    entry={exp}
-                    index={idx}
-                    side="left"
-                    expanded={!!expanded[idx]}
-                    toggle={() => toggle(idx)}
-                    globalTech={techStack}
-                    maxBullets={maxBullets}
-                    compactOnMobile={compactOnMobile}
-                  />
-                </TabsContent>
-              ))}
-            </div>
-          </div>
-        </Tabs>
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="relative"
+              >
+                {/* Header (clickable) */}
+                <button
+                  onClick={() => toggle(idx)}
+                  className="text-left w-full group"
+                >
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-white text-lg md:text-xl font-semibold">
+                        {exp.company}
+                      </h3>
+                      <p className="text-sm text-white/50">
+                        {exp.role} · {exp.period}
+                      </p>
+                    </div>
+
+                    {/* indicator */}
+                    <span className="text-white/40 group-hover:text-white transition">
+                      {isOpen ? "−" : "+"}
+                    </span>
+                  </div>
+                </button>
+
+                {/* Expandable content */}
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="mt-6">
+                    <TimelineCard
+                      entry={exp}
+                      index={idx}
+                      side="left"
+                      expanded={true}
+                      toggle={() => toggle(idx)}
+                      globalTech={techStack}
+                      maxBullets={maxBullets}
+                      compactOnMobile={compactOnMobile}
+                    />
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
 }
-
-// (old TimelineCard implementation removed)

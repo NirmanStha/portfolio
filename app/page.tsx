@@ -1,11 +1,10 @@
-import { SKILLS } from "@/components/constants";
+import ContactForm from "@/components/custom/ContactForm";
 import CustomCursor from "@/components/custom/Cursor";
 import Experience from "@/components/custom/Experience";
 import Hero from "@/components/custom/Hero";
 import IntroLoader from "@/components/custom/Intro";
 import Project from "@/components/custom/Project";
 import Skill from "@/components/custom/Skill";
-import ContactForm from "@/components/custom/ContactForm";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
