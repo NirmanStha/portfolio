@@ -103,7 +103,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Tailwind CSS",
     category: "Frontend",
-    years: 3,
+    years: 2,
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     color: "#38bdf8",
     shadow: "rgba(56,189,248,.22)",
@@ -295,7 +295,7 @@ export const SKILLS: Skill[] = [
   {
     name: "GSAP",
     category: "Creative",
-    years: 2,
+    years: 1,
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gsap/gsap-original.svg",
     color: "#88ce02",
     shadow: "rgba(136,206,2,.22)",

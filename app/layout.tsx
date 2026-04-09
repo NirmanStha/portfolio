@@ -5,15 +5,45 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const siteName = "Nirman Shrestha";
+const personFullName = "Nirman Shrestha";
 const siteDescription =
   "Nirman Shrestha is a frontend engineer building high-performance React and Next.js experiences with clean interfaces and thoughtful motion.";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const fallbackSiteUrl = "http://localhost:3000";
+const siteUrlCandidate =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+  process.env.VERCEL_URL;
+const siteUrl = (() => {
+  if (!siteUrlCandidate) {
+    return fallbackSiteUrl;
+  }
+
+  const withProtocol =
+    siteUrlCandidate.startsWith("http://") ||
+    siteUrlCandidate.startsWith("https://")
+      ? siteUrlCandidate
+      : `https://${siteUrlCandidate}`;
+
+  try {
+    return new URL(withProtocol).origin;
+  } catch {
+    return fallbackSiteUrl;
+  }
+})();
+const siteImage = `${siteUrl}/og-image.svg`;
+const profileSameAs = [
+  process.env.NEXT_PUBLIC_GITHUB_URL,
+  process.env.NEXT_PUBLIC_LINKEDIN_URL,
+  process.env.NEXT_PUBLIC_TWITTER_URL,
+].filter((value): value is string => Boolean(value));
+
 const profileSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: siteName,
+  name: personFullName,
+  alternateName: ["NirmanShrestha", "Nirman Shrestha"],
   url: siteUrl,
-  image: `${siteUrl}/og-image.svg`,
+  image: siteImage,
   jobTitle: "Frontend Engineer",
   description: siteDescription,
   knowsAbout: [
@@ -24,8 +54,48 @@ const profileSchema = {
     "Framer Motion",
     "Frontend Engineering",
   ],
-  sameAs: [],
+  sameAs: profileSameAs,
 };
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  url: siteUrl,
+  description: siteDescription,
+  inLanguage: "en-US",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${siteUrl}/?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const webpageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: `${siteName} | Frontend Engineer`,
+  url: siteUrl,
+  description: siteDescription,
+  isPartOf: {
+    "@type": "WebSite",
+    url: siteUrl,
+    name: siteName,
+  },
+  about: {
+    "@type": "Person",
+    name: personFullName,
+  },
+};
+
+const structuredData = [profileSchema, websiteSchema, webpageSchema];
+
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const metadataVerification = googleVerification
+  ? { google: googleVerification }
+  : undefined;
+
+const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -45,17 +115,26 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Nirman Shrestha",
+    "NirmanShrestha",
     "Frontend Engineer",
+    "Frontend Developer",
     "React",
+    "React.js",
+    "ReactJS",
     "Next.js",
+    "NextJS",
+    "JavaScript",
+    "TypeScript Developer",
+    "TS JS",
     "TypeScript",
     "Tailwind CSS",
     "Portfolio",
     "Web Developer",
   ],
-  authors: [{ name: siteName }],
+  authors: [{ name: siteName, url: siteUrl }],
   creator: siteName,
   publisher: siteName,
+  verification: metadataVerification,
   alternates: {
     canonical: "/",
   },
@@ -68,7 +147,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/og-image.svg",
+        url: siteImage,
         width: 1200,
         height: 630,
         alt: `${siteName} portfolio preview`,
@@ -79,7 +158,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteName} | Frontend Engineer`,
     description: siteDescription,
-    images: ["/og-image.svg"],
+    images: [siteImage],
+    site: twitterHandle,
+    creator: twitterHandle,
   },
   robots: {
     index: true,
@@ -97,6 +178,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
@@ -117,7 +199,7 @@ export default function RootLayout({
       <body className="bg-slate-950">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(profileSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         {children}
       </body>

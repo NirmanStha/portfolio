@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
             variants={item}
             className="text-indigo-400 font-medium tracking-widest uppercase text-sm md:text-base"
           >
-            Frontend Engineer • 3 Years of Craft
+            Nirman Shrestha | React.js | Next.js | TypeScript | JavaScript
           </motion.p>
 
           <motion.h1
@@ -58,9 +58,9 @@ const Hero: React.FC = () => {
             className="pt-10 flex flex-col md:flex-row md:items-end justify-between gap-10"
           >
             <p className="max-w-md text-slate-400 text-lg leading-relaxed">
-              Based in the intersection of design and code. Specializing in
-              high-performance React applications with a focus on fluid
-              interactions.
+              I design and build performant web products as a frontend engineer,
+              with deep focus on React.js, Next.js, TypeScript, JavaScript, and
+              fluid interaction design.
             </p>
 
             <motion.div

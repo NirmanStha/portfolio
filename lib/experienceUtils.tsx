@@ -38,4 +38,6 @@ export const highlightText = (
   );
 };
 
-export default { dedupeTech, highlightText };
+const experienceUtils = { dedupeTech, highlightText };
+
+export default experienceUtils;

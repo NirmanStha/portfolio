@@ -111,8 +111,10 @@ export async function POST(request: Request) {
       success: true,
       message: "Email sent successfully",
     });
-  } catch (err: any) {
-    console.error("Nodemailer Error:", err.message);
+  } catch (err: unknown) {
+    const errorMessage =
+      err instanceof Error ? err.message : "Unknown mailer error";
+    console.error("Nodemailer Error:", errorMessage);
     return NextResponse.json(
       { error: "Failed to send email. Please try again later." },
       { status: 500 },

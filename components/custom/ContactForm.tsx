@@ -1,7 +1,22 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react"; // Changed to framer-motion for standard imports
+import { motion, AnimatePresence } from "motion/react";
+
+const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: process.env.NEXT_PUBLIC_LINKEDIN_URL,
+  },
+  {
+    label: "Twitter",
+    href: process.env.NEXT_PUBLIC_TWITTER_URL,
+  },
+  {
+    label: "GitHub",
+    href: process.env.NEXT_PUBLIC_GITHUB_URL,
+  },
+].filter((item): item is { label: string; href: string } => Boolean(item.href));
 
 export default function ContactForm() {
   const [name, setName] = useState("");
@@ -61,8 +76,12 @@ export default function ContactForm() {
       setEmail("");
       setSubject("");
       setMessage("");
-    } catch (err: any) {
-      setError(err.message || "Unexpected error. Try again later.");
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error
+          ? err.message
+          : "Unexpected error. Try again later.";
+      setError(errorMessage);
       setStatus("error");
     }
   }
@@ -70,7 +89,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-32 px-6 md:px-20 bg-white text-black rounded-t-[50px] md:rounded-t-[100px]"
+      className="py-32 sm:px-6 md:px-20 bg-white text-black rounded-t-[50px] md:rounded-t-[100px]"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -87,13 +106,15 @@ export default function ContactForm() {
             <div className="space-y-4">
               <p className="text-xl font-medium">nirmans39@gmail.com</p>
               <div className="flex gap-6">
-                {["LinkedIn", "Twitter", "GitHub"].map((link) => (
+                {socialLinks.map((link) => (
                   <a
-                    key={link}
-                    href="#"
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer me"
                     className="text-sm font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
                   >
-                    {link}
+                    {link.label}
                   </a>
                 ))}
               </div>
@@ -164,7 +185,7 @@ export default function ContactForm() {
               </div>
 
               {/* Status Messages */}
-              <div className="min-h-[24px]">
+              <div className="min-h-6">
                 <AnimatePresence mode="wait">
                   {error && (
                     <motion.div

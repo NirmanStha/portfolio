@@ -55,7 +55,7 @@ const CustomCursor: React.FC = () => {
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
     };
-  }, []);
+  }, [mouseX, mouseY]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-9999">
