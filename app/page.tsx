@@ -38,7 +38,7 @@ export default function Home() {
           <Project />
           <Skill />
           <Experience />
-          <div className="mt-12 px-6 md:px-0">
+          <div className="mt-12  md:px-0">
             <ContactForm />
           </div>
         </main>
