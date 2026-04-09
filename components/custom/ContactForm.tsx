@@ -8,10 +8,7 @@ const socialLinks = [
     label: "LinkedIn",
     href: process.env.NEXT_PUBLIC_LINKEDIN_URL,
   },
-  {
-    label: "Twitter",
-    href: process.env.NEXT_PUBLIC_TWITTER_URL,
-  },
+
   {
     label: "GitHub",
     href: process.env.NEXT_PUBLIC_GITHUB_URL,

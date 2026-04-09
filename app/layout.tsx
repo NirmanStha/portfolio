@@ -34,7 +34,6 @@ const siteImage = `${siteUrl}/og-image.svg`;
 const profileSameAs = [
   process.env.NEXT_PUBLIC_GITHUB_URL,
   process.env.NEXT_PUBLIC_LINKEDIN_URL,
-  process.env.NEXT_PUBLIC_TWITTER_URL,
 ].filter((value): value is string => Boolean(value));
 
 const profileSchema = {
@@ -95,8 +94,6 @@ const metadataVerification = googleVerification
   ? { google: googleVerification }
   : undefined;
 
-const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE;
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -154,14 +151,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: `${siteName} | Frontend Engineer`,
-    description: siteDescription,
-    images: [siteImage],
-    site: twitterHandle,
-    creator: twitterHandle,
-  },
+
   robots: {
     index: true,
     follow: true,
