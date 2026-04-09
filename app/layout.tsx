@@ -8,7 +8,7 @@ const siteName = "Nirman Shrestha";
 const personFullName = "Nirman Shrestha";
 const siteDescription =
   "Nirman Shrestha is a frontend engineer building high-performance React and Next.js experiences with clean interfaces and thoughtful motion.";
-const fallbackSiteUrl = "http://localhost:3000";
+const fallbackSiteUrl = "https://nirman-shrestha.com.np";
 const siteUrlCandidate =
   process.env.NEXT_PUBLIC_SITE_URL ??
   process.env.VERCEL_PROJECT_PRODUCTION_URL ??
@@ -34,7 +34,9 @@ const siteImage = `${siteUrl}/og-image.svg`;
 const profileSameAs = [
   process.env.NEXT_PUBLIC_GITHUB_URL,
   process.env.NEXT_PUBLIC_LINKEDIN_URL,
+  process.env.NEXT_PUBLIC_TWITTER_URL,
 ].filter((value): value is string => Boolean(value));
+const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE;
 
 const profileSchema = {
   "@context": "https://schema.org",
@@ -138,7 +140,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "/",
+    url: siteUrl,
     siteName,
     title: `${siteName} | Frontend Engineer`,
     description: siteDescription,
@@ -150,6 +152,14 @@ export const metadata: Metadata = {
         alt: `${siteName} portfolio preview`,
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} | Frontend Engineer`,
+    description: siteDescription,
+    images: [siteImage],
+    site: twitterHandle,
+    creator: twitterHandle,
   },
 
   robots: {

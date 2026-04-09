@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const fallbackSiteUrl = "http://localhost:3000";
+const fallbackSiteUrl = "https://nirman-shrestha.com.np";
 const siteUrlCandidate =
   process.env.NEXT_PUBLIC_SITE_URL ??
   process.env.VERCEL_PROJECT_PRODUCTION_URL ??

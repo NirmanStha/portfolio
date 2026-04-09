@@ -34,6 +34,10 @@ export default function Home() {
         <Navbar />
 
         <main id="main-content">
+          <h1 className="sr-only">
+            Nirman Shrestha - React.js, Next.js, TypeScript and JavaScript
+            Frontend Engineer Portfolio
+          </h1>
           <Hero />
           <Project />
           <Skill />
