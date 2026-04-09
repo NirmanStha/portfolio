@@ -2,10 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Schema from "@/components/Schema";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const siteName = "Nirman Shrestha";
-const personFullName = "Nirman Shrestha";
 const siteDescription =
   "Nirman Shrestha is a frontend engineer building high-performance React and Next.js experiences with clean interfaces and thoughtful motion.";
 const fallbackSiteUrl = "https://nirman-shrestha.com.np";
@@ -31,65 +31,7 @@ const siteUrl = (() => {
   }
 })();
 const siteImage = `${siteUrl}/og-image.svg`;
-const profileSameAs = [
-  process.env.NEXT_PUBLIC_GITHUB_URL,
-  process.env.NEXT_PUBLIC_LINKEDIN_URL,
-  process.env.NEXT_PUBLIC_TWITTER_URL,
-].filter((value): value is string => Boolean(value));
 const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE;
-
-const profileSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: personFullName,
-  alternateName: ["NirmanShrestha", "Nirman Shrestha"],
-  url: siteUrl,
-  image: siteImage,
-  jobTitle: "Frontend Engineer",
-  description: siteDescription,
-  knowsAbout: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Framer Motion",
-    "Frontend Engineering",
-  ],
-  sameAs: profileSameAs,
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: siteName,
-  url: siteUrl,
-  description: siteDescription,
-  inLanguage: "en-US",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: `${siteUrl}/?q={search_term_string}`,
-    "query-input": "required name=search_term_string",
-  },
-};
-
-const webpageSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: `${siteName} | Frontend Engineer`,
-  url: siteUrl,
-  description: siteDescription,
-  isPartOf: {
-    "@type": "WebSite",
-    url: siteUrl,
-    name: siteName,
-  },
-  about: {
-    "@type": "Person",
-    name: personFullName,
-  },
-};
-
-const structuredData = [profileSchema, websiteSchema, webpageSchema];
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 const metadataVerification = googleVerification
@@ -100,7 +42,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: `${siteName} | Frontend Engineer`,
-    template: `%s | ${siteName}`,
+    template: `%s | ${siteName} | Frontend Engineer`,
   },
   description: siteDescription,
   applicationName: siteName,
@@ -137,6 +79,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -149,41 +95,37 @@ export const metadata: Metadata = {
         url: siteImage,
         width: 1200,
         height: 630,
-        alt: `${siteName} portfolio preview`,
+        alt: `${siteName} | Frontend Engineer`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    creator: twitterHandle,
     title: `${siteName} | Frontend Engineer`,
     description: siteDescription,
-    images: [siteImage],
-    site: twitterHandle,
-    creator: twitterHandle,
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    images: [
+      {
+        url: siteImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteName} | Frontend Engineer`,
+      },
+    ],
   },
   manifest: "/site.webmanifest",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b1120",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
 };
 
 export default function RootLayout({
@@ -192,15 +134,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn("h-full", "antialiased", "font-sans", inter.variable)}
-    >
-      <body className="bg-slate-950">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <Schema />
+      </head>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          inter.variable,
+        )}
+      >
         {children}
       </body>
     </html>
