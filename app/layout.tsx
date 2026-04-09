@@ -89,9 +89,7 @@ const webpageSchema = {
 
 const structuredData = [profileSchema, websiteSchema, webpageSchema];
 
-const googleVerification =
-  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ??
-  "8LHLoxDa57qxMvccQhqYf7IklJt7CCVHZWDEMK9414w";
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 const metadataVerification = googleVerification
   ? { google: googleVerification }
   : undefined;
