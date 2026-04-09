@@ -5,25 +5,28 @@ import {
   NEXT_PUBLIC_SITE_URL,
 } from "@/lib/constants";
 
+const personSchema: Person = {
+  "@type": "Person",
+  name: "Nirman Shrestha",
+  url: NEXT_PUBLIC_SITE_URL,
+  sameAs: [NEXT_PUBLIC_GITHUB_URL, NEXT_PUBLIC_LINKEDIN_URL],
+  jobTitle: "Frontend Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Nirman Shrestha",
+  },
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "Tailwind CSS",
+  ],
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
-  ...Person({
-    name: "Nirman Shrestha",
-    url: NEXT_PUBLIC_SITE_URL,
-    sameAs: [NEXT_PUBLIC_GITHUB_URL, NEXT_PUBLIC_LINKEDIN_URL],
-    jobTitle: "Frontend Engineer",
-    worksFor: {
-      "@type": "Organization",
-      name: "Nirman Shrestha",
-    },
-    knowsAbout: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "Tailwind CSS",
-    ],
-  }),
+  ...personSchema,
 };
 
 export default function Schema() {
