@@ -1,4 +1,4 @@
-import { person } from "schema-dts";
+import { Person } from "schema-dts";
 import {
   NEXT_PUBLIC_GITHUB_URL,
   NEXT_PUBLIC_LINKEDIN_URL,
@@ -7,7 +7,7 @@ import {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  ...person({
+  ...Person({
     name: "Nirman Shrestha",
     url: NEXT_PUBLIC_SITE_URL,
     sameAs: [NEXT_PUBLIC_GITHUB_URL, NEXT_PUBLIC_LINKEDIN_URL],
