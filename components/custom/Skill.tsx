@@ -86,7 +86,7 @@ const Skill = () => {
         </motion.div>
 
         {/* cta */}
-        <motion.div
+        {/* <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +119,7 @@ const Skill = () => {
               <polyline points="7 7 17 7 17 17" />
             </svg>
           </a>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

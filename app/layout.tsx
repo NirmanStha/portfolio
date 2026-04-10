@@ -1,8 +1,8 @@
-import type { Metadata, Viewport } from "next";
+import Schema from "@/components/Schema";
 import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Schema from "@/components/Schema";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const siteName = "Nirman Shrestha";
@@ -42,10 +42,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: `${siteName} | Frontend Engineer`,
-    template: `%s | ${siteName} | Frontend Engineer`,
+    template: `%s | ${siteName}`,
   },
   description: siteDescription,
   applicationName: siteName,
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} | Frontend Engineer`,
+    description: siteDescription,
+    creator: twitterHandle,
+    images: [`${siteUrl}/twitter-image.png`],
+  },
   category: "portfolio",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
@@ -84,7 +91,10 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    type: "website",
+    type: "profile",
+    firstName: "Nirman",
+    lastName: "Shrestha",
+    username: "NirmanStha",
     locale: "en_US",
     url: siteUrl,
     siteName,
@@ -99,33 +109,13 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    creator: twitterHandle,
-    title: `${siteName} | Frontend Engineer`,
-    description: siteDescription,
-    images: [
-      {
-        url: siteImage,
-        width: 1200,
-        height: 630,
-        alt: `${siteName} | Frontend Engineer`,
-      },
-    ],
-  },
+
   manifest: "/site.webmanifest",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
-};
-
-export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
 };
 
 export default function RootLayout({
@@ -140,7 +130,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-slate-950 font-sans antialiased",
           inter.variable,
         )}
       >
