@@ -101,20 +101,6 @@ function SkillCard({ skill, index }: SkillCardProps) {
       >
         {skill.category}
       </p>
-
-      {/* years pill */}
-      <span
-        className="inline-block mt-2 text-[10px] font-mono px-2 py-0.5 rounded-full relative z-10 transition-all duration-300"
-        style={{
-          background: hovered ? skill.pillBg : "rgba(255,255,255,0.05)",
-          color: hovered ? skill.accent : "rgba(255,255,255,0.28)",
-          border: hovered
-            ? `0.5px solid ${skill.pillBorder}`
-            : "0.5px solid rgba(255,255,255,0.07)",
-        }}
-      >
-        {skill?.years}yr
-      </span>
     </motion.div>
   );
 }

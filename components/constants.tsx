@@ -67,7 +67,7 @@ export const SKILLS: Skill[] = [
   {
     name: "React",
     category: "Frontend",
-    years: 2,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     color: "#61DAFB",
     shadow: "rgba(97,218,251,.22)",
@@ -79,7 +79,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Next.js",
     category: "Frontend",
-    years: 2,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     color: "rgba(255,255,255,.5)",
     shadow: "rgba(255,255,255,.12)",
@@ -91,7 +91,7 @@ export const SKILLS: Skill[] = [
   {
     name: "TypeScript",
     category: "Frontend",
-    years: 2,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
     color: "#3178C6",
     shadow: "rgba(49,120,198,.25)",
@@ -103,7 +103,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Tailwind CSS",
     category: "Frontend",
-    years: 2,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     color: "#38bdf8",
     shadow: "rgba(56,189,248,.22)",
@@ -115,7 +115,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Framer Motion",
     category: "Creative",
-    years: 2,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg",
     color: "#a78bfa",
     shadow: "rgba(167,139,250,.22)",
@@ -127,7 +127,7 @@ export const SKILLS: Skill[] = [
   {
     name: "TanStack Query",
     category: "Frontend",
-    years: 1,
+
     icon: `data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="16" fill="#111827"/><circle cx="32" cy="32" r="22" fill="none" stroke="#FF4154" stroke-width="2.5" opacity="0.35"/><text x="32" y="38" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#FF6B7A">TQ</text></svg>')}`,
     color: "#FF4154",
     shadow: "rgba(255,65,84,.24)",
@@ -139,7 +139,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Redux Toolkit",
     category: "Frontend",
-    years: 2,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
     color: "#764abc",
     shadow: "rgba(118,74,188,.24)",
@@ -151,7 +151,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Node.js",
     category: "Backend",
-    years: 1,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     color: "#6cc24a",
     shadow: "rgba(108,194,74,.22)",
@@ -163,7 +163,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Express.js",
     category: "Backend",
-    years: 1,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
     color: "rgba(255,255,255,.5)",
     shadow: "rgba(255,255,255,.1)",
@@ -175,7 +175,7 @@ export const SKILLS: Skill[] = [
   {
     name: "PostgreSQL",
     category: "Backend",
-    years: 1,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
     color: "#336791",
     shadow: "rgba(51,103,145,.25)",
@@ -187,7 +187,7 @@ export const SKILLS: Skill[] = [
   {
     name: "MySQL",
     category: "Backend",
-    years: 1,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
     color: "#4479a1",
     shadow: "rgba(68,121,161,.25)",
@@ -247,7 +247,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Axios",
     category: "Tools",
-    years: 2,
+
     icon: `data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="16" fill="#111827"/><circle cx="32" cy="32" r="22" fill="none" stroke="#5A29E4" stroke-width="2.5" opacity="0.35"/><text x="32" y="38" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#8B6CFF">AX</text></svg>')}`,
     color: "#5A29E4",
     shadow: "rgba(90,41,228,.24)",
@@ -295,7 +295,7 @@ export const SKILLS: Skill[] = [
   {
     name: "GSAP",
     category: "Creative",
-    years: 1,
+
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gsap/gsap-original.svg",
     color: "#88ce02",
     shadow: "rgba(136,206,2,.22)",
