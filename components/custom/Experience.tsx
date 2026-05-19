@@ -5,6 +5,7 @@ import { ExperienceProps } from "@/lib/experienceTypes";
 import TimelineCard from "@/components/custom/TimelineCard";
 import { motion } from "motion/react";
 import { useState } from "react";
+import { Button } from "../ui/button";
 
 export default function Experience({
   experiences = DEFAULT_EXPERIENCES,
@@ -50,7 +51,7 @@ export default function Experience({
                 className="relative"
               >
                 {/* Header (clickable) */}
-                <button
+                <Button
                   onClick={() => toggle(idx)}
                   className="text-left w-full group"
                 >
@@ -69,7 +70,7 @@ export default function Experience({
                       {isOpen ? "−" : "+"}
                     </span>
                   </div>
-                </button>
+                </Button>
 
                 {/* Expandable content */}
                 <motion.div
