@@ -35,7 +35,7 @@ export const PROJECTS: Project[] = [
       "An AI-powered content generation platform with a focus on intuitive design and seamless UX.",
     image: "/assets/brainwave.png",
     tags: ["React.js", "Tailwind", "Framer Motion", "React Parallax"],
-    link: "project-brainwave007.netlify.appc",
+    link: "project-brainwave007.netlify.app",
   },
 ];
 
