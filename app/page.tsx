@@ -62,7 +62,7 @@ export default function Home() {
                 Certifications
               </h2>
               <div>
-                <ul className="list-none list-inside text-white">
+                <ul className="list-disc list-inside text-white">
                   <li>
                     <a
                       href="https://coursera.org/share/16b4cdfa35e7ae0228d70a29fa73c331"
