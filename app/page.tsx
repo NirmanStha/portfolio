@@ -57,7 +57,7 @@ export default function Home() {
           <Skill />
           <Experience />
           <div className="certification ">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl px-6 md:px-20 mx-auto">
               <h2 className="text-3xl  text-white font-semibold mb-4">
                 Certifications
               </h2>

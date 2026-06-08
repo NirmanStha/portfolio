@@ -53,7 +53,7 @@ export default function Experience({
                 {/* Header (clickable) */}
                 <Button
                   onClick={() => toggle(idx)}
-                  className="text-left w-full group"
+                  className="text-left w-full group bg-transparent border-none p-0 rounded-none focus:ring-0 focus:outline-none"
                 >
                   <div className="flex items-center justify-between">
                     <div>
