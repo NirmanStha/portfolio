@@ -22,14 +22,20 @@ const IntroLoader: React.FC = () => {
           className="fixed inset-0 z-[200] flex items-center justify-center bg-night"
         >
           <div className="relative flex items-center justify-center">
-            {!reducedMotion && (
-              <motion.div
-                initial={{ scale: 0.6, opacity: 0.5 }}
-                animate={{ scale: [0.6, 1.2, 1.4], opacity: [0.5, 0.3, 0] }}
-                transition={{ duration: 1.1, ease: "easeOut" }}
-                className="absolute h-40 w-40 rounded-full bg-crimson/40 blur-2xl"
-              />
-            )}
+            <motion.div
+              aria-hidden
+              initial={{ scale: 0.6, opacity: 0.5 }}
+              animate={
+                reducedMotion
+                  ? { opacity: 0 }
+                  : { scale: [0.6, 1.2, 1.4], opacity: [0.5, 0.3, 0] }
+              }
+              transition={{
+                duration: reducedMotion ? 0.2 : 1.1,
+                ease: "easeOut",
+              }}
+              className="absolute h-40 w-40 rounded-full bg-crimson/40 blur-2xl"
+            />
             <motion.h2
               initial={{ y: 24, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
