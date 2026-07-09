@@ -13,6 +13,12 @@ const CustomCursor: React.FC = () => {
   >("default");
   const [isPressed, setIsPressed] = useState(false);
 
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    setEnabled(window.matchMedia("(pointer: fine)").matches);
+  }, []);
+
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
@@ -57,11 +63,13 @@ const CustomCursor: React.FC = () => {
     };
   }, [mouseX, mouseY]);
 
+  if (!enabled) return null;
+
   return (
     <div className="fixed inset-0 pointer-events-none z-9999">
       {/* Outer Ring */}
       <motion.div
-        className="absolute top-0 left-0 rounded-full mix-blend-difference border border-white/40 flex items-center justify-center overflow-hidden"
+        className="absolute top-0 left-0 rounded-full border border-crimson/60 flex items-center justify-center overflow-hidden"
         style={{
           x: ringX,
           y: ringY,
@@ -85,15 +93,14 @@ const CustomCursor: React.FC = () => {
                   : 40,
           borderRadius: cursorState === "text" ? "4px" : "50%",
         }}
-        // Combined duplicate backgroundColor properties into one logic block
         animate={{
           borderWidth: cursorState === "text" ? 0 : 1,
           backgroundColor:
             cursorState === "text"
-              ? "rgba(255, 255, 255, 1)"
+              ? "rgba(224, 35, 78, 0.9)"
               : cursorState === "view"
-                ? "rgba(255, 255, 255, 0.1)"
-                : "rgba(255, 255, 255, 0.0)",
+                ? "rgba(224, 35, 78, 0.15)"
+                : "rgba(224, 35, 78, 0)",
         }}
       >
         <AnimatePresence>
@@ -112,7 +119,7 @@ const CustomCursor: React.FC = () => {
 
       {/* Inner Dot - Precise */}
       <motion.div
-        className="absolute top-0 left-0 w-1 h-1 bg-white rounded-full mix-blend-difference"
+        className="absolute top-0 left-0 w-1 h-1 bg-crimson rounded-full"
         style={{
           x: mouseX,
           y: mouseY,
