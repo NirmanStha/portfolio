@@ -85,41 +85,6 @@ const Skill = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* cta */}
-        {/* <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <p className="text-[13px] text-white/30 mb-4">
-            Impressed? Let&apos;s build something extraordinary together.
-          </p>
-          <a
-            href="mailto:you@example.com"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-[13px] font-medium text-violet-300 transition-all duration-300 hover:-translate-y-1"
-            style={{
-              background: "rgba(167,139,250,.1)",
-              border: "0.5px solid rgba(167,139,250,.35)",
-            }}
-          >
-            Start a conversation
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </a>
-        </motion.div> */}
       </div>
     </div>
   );

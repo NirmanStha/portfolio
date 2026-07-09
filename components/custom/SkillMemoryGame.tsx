@@ -109,7 +109,7 @@ export default function SkillMemoryGame() {
                     >
                       {/* back */}
                       <div
-                        className="bg-surface-1 border-crimson/20 absolute inset-0 flex items-center justify-center rounded-xl border"
+                        className="bg-surface-1 border-crimson/20 absolute inset-0 flex items-center justify-center rounded-xl border transition-opacity duration-300"
                         style={{
                           backfaceVisibility: "hidden",
                           opacity: reducedMotion && isUp ? 0 : 1,
@@ -121,7 +121,7 @@ export default function SkillMemoryGame() {
                       </div>
                       {/* face */}
                       <div
-                        className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 p-2"
+                        className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 p-2 transition-opacity duration-300"
                         style={{
                           backfaceVisibility: "hidden",
                           transform: reducedMotion ? "none" : "rotateY(180deg)",
