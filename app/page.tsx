@@ -1,4 +1,5 @@
 import ContactForm from "@/components/custom/ContactForm";
+import Certifications from "@/components/custom/Certifications";
 import CustomCursor from "@/components/custom/Cursor";
 import Experience from "@/components/custom/Experience";
 import Hero from "@/components/custom/Hero";
@@ -56,37 +57,7 @@ export default function Home() {
           <Project />
           <SkillMemoryGame />
           <Experience />
-          <div className="certification ">
-            <div className="max-w-7xl px-6 md:px-20 mx-auto">
-              <h2 className="text-3xl  text-white font-semibold mb-4">
-                Certifications
-              </h2>
-              <div>
-                <ul className="list-disc list-inside text-white">
-                  <li>
-                    <a
-                      href="https://coursera.org/share/16b4cdfa35e7ae0228d70a29fa73c331"
-                      target="_blank"
-                      rel="noopener noreferrer me"
-                      className=" hover:text-gray-300 transition-colors"
-                    >
-                      Advance React - Issued by Meta on Coursera
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://broadwayinfosys.com/certificate-verification-code/eyJpdiI6InhkMDZJMWR0ZUtJRTJ4T3ptZ0pLMUE9PSIsInZhbHVlIjoiaEdZOFQ2eDBXL0I4bFFkZWRpd3ZYQT09IiwibWFjIjoiNTJjNDc4MzFkNTEzOTUzYjk3MTUwMzQ4ZDBmYThkZDJiMGNmOGI1NjE2NjE2ZjQ2YzUwM2QzOTcxZjVmOTM3YyIsInRhZyI6IiJ9"
-                      target="_blank"
-                      rel="noopener noreferrer me"
-                      className=" hover:text-gray-300 transition-colors"
-                    >
-                      Web Design Certification - Issued by Broadway Infosys
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <Certifications />
           <div className="mt-12  md:px-0">
             <ContactForm />
           </div>
