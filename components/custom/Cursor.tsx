@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useSyncExternalStore } from "react";
 import {
   motion,
   useSpring,
@@ -7,17 +7,31 @@ import {
   AnimatePresence,
 } from "motion/react";
 
+function subscribePointerFine(callback: () => void) {
+  const mql = window.matchMedia("(pointer: fine)");
+  mql.addEventListener("change", callback);
+  return () => mql.removeEventListener("change", callback);
+}
+
+function getPointerFineSnapshot() {
+  return window.matchMedia("(pointer: fine)").matches;
+}
+
+function getPointerFineServerSnapshot() {
+  return false;
+}
+
 const CustomCursor: React.FC = () => {
   const [cursorState, setCursorState] = useState<
     "default" | "pointer" | "view" | "text"
   >("default");
   const [isPressed, setIsPressed] = useState(false);
 
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    setEnabled(window.matchMedia("(pointer: fine)").matches);
-  }, []);
+  const enabled = useSyncExternalStore(
+    subscribePointerFine,
+    getPointerFineSnapshot,
+    getPointerFineServerSnapshot,
+  );
 
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
