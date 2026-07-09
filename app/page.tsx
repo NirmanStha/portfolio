@@ -4,7 +4,7 @@ import Experience from "@/components/custom/Experience";
 import Hero from "@/components/custom/Hero";
 import IntroLoader from "@/components/custom/Intro";
 import Project from "@/components/custom/Project";
-import Skill from "@/components/custom/Skill";
+import SkillMemoryGame from "@/components/custom/SkillMemoryGame";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 
@@ -54,7 +54,7 @@ export default function Home() {
           </h1>
           <Hero />
           <Project />
-          <Skill />
+          <SkillMemoryGame />
           <Experience />
           <div className="certification ">
             <div className="max-w-7xl px-6 md:px-20 mx-auto">
