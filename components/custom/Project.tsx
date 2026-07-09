@@ -5,7 +5,7 @@ import ProjectCard from "./ProjectCard";
 
 const Project = () => {
   return (
-    <section id="projects" className="py-32 px-6 md:px-20 bg-slate-950/30">
+    <section id="projects" className="bg-surface-1 angled px-6 py-32 md:px-20">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-20">
           <motion.div
@@ -16,9 +16,9 @@ const Project = () => {
           >
             <h2
               data-cursor="text"
-              className="text-4xl md:text-6xl font-serif text-white"
+              className="font-heading text-4xl font-bold text-white md:text-6xl"
             >
-              Some <br /> recent works.
+              Some <br /> recent <span className="text-crimson">works.</span>
             </h2>
           </motion.div>
           <div className="hidden md:block text-slate-500 text-sm italic">
