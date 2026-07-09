@@ -26,7 +26,7 @@ export const highlightText = (
         return isTech ? (
           <mark
             key={i}
-            className="bg-indigo-600/20 text-indigo-300 px-1 rounded"
+            className="bg-crimson/20 text-crimson px-1 rounded"
           >
             {p}
           </mark>

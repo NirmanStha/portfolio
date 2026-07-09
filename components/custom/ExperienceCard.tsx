@@ -23,7 +23,7 @@ function ExperienceCard({ exp, idx }: { exp: Exp; idx: number }) {
       <Card className="rounded-[18px] p-6 bg-white/10 backdrop-blur-md border border-white/20 shadow-md hover:shadow-lg transition-shadow duration-200">
         <CardContent className="p-0">
           <div className="mb-4">
-            <h3 className="font-serif text-lg md:text-xl text-white">
+            <h3 className="font-heading text-lg md:text-xl text-white">
               {exp.company}
             </h3>
             <div className="text-sm text-white/60 mt-1">
@@ -41,7 +41,7 @@ function ExperienceCard({ exp, idx }: { exp: Exp; idx: number }) {
               <li key={i} className="flex gap-3">
                 <span
                   aria-hidden
-                  className="mt-1 w-2 h-2 rounded-full bg-violet-400/90 shrink-0"
+                  className="bg-crimson mt-1 w-2 h-2 rounded-full shrink-0"
                 />
                 <span>{b}</span>
               </li>
