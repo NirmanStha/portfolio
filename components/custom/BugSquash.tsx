@@ -29,7 +29,9 @@ export default function BugSquash() {
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(GAME_DURATION_S);
   const [best, setBest] = useState(0);
+  const [isNewBest, setIsNewBest] = useState(false);
   const idRef = useRef(0);
+  const squashedRef = useRef<Set<number>>(new Set());
   const reducedMotion = useReducedMotion();
   // Touch devices get larger, easier targets
   const [bugSize, setBugSize] = useState(44);
@@ -38,8 +40,13 @@ export default function BugSquash() {
   // cannot run during render (would desync server/client output), so the
   // synchronous setState here is intentional and hydration-safe.
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setBest(Number(localStorage.getItem(BEST_KEY) ?? 0));
+    try {
+      const stored = Number(localStorage.getItem(BEST_KEY) ?? 0);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setBest(Number.isFinite(stored) ? stored : 0);
+    } catch {
+      /* storage unavailable */
+    }
     setBugSize(window.matchMedia("(pointer: coarse)").matches ? 56 : 44);
   }, []);
 
@@ -109,7 +116,12 @@ export default function BugSquash() {
     if (status === "over" && score > best) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setBest(score);
-      localStorage.setItem(BEST_KEY, String(score));
+      setIsNewBest(true);
+      try {
+        localStorage.setItem(BEST_KEY, String(score));
+      } catch {
+        /* storage unavailable */
+      }
     }
   }, [status, score, best]);
 
@@ -119,9 +131,13 @@ export default function BugSquash() {
     setScore(0);
     setTimeLeft(GAME_DURATION_S);
     setStatus("running");
+    setIsNewBest(false);
+    squashedRef.current.clear();
   };
 
   const squash = (bug: BugEntity) => {
+    if (squashedRef.current.has(bug.id)) return;
+    squashedRef.current.add(bug.id);
     setBugs((prev) => prev.filter((b) => b.id !== bug.id));
     setScore((s) => s + 1);
     setSplats((prev) => [...prev, { id: bug.id, x: bug.x, y: bug.y }]);
@@ -168,7 +184,7 @@ export default function BugSquash() {
               {status === "over" && (
                 <p className="font-heading text-2xl font-bold text-white">
                   {score} bugs squashed
-                  {score >= best && score > 0 && (
+                  {isNewBest && (
                     <span className="text-crimson"> — new best!</span>
                   )}
                 </p>
