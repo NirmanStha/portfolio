@@ -18,6 +18,7 @@ const NAV_ITEMS = [
 
 const Navbar: React.FC = () => {
   const [active, setActive] = useState("home");
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   useEffect(() => {
     const sections = NAV_ITEMS.map((item) =>
@@ -64,6 +65,7 @@ const Navbar: React.FC = () => {
               <li key={item} className="relative">
                 <a
                   href={`#${id}`}
+                  aria-current={isActive ? "true" : undefined}
                   className={`text-sm tracking-widest uppercase transition ${
                     isActive ? "text-white" : "text-white/60 hover:text-white"
                   }`}
@@ -83,8 +85,8 @@ const Navbar: React.FC = () => {
 
         {/* Mobile */}
         <div className="flex w-full items-center justify-center md:hidden">
-          <Sheet>
-            <SheetTrigger>
+          <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+            <SheetTrigger aria-label="Open navigation menu">
               <div className="text-white">
                 <Menu size={22} />
               </div>
@@ -106,6 +108,8 @@ const Navbar: React.FC = () => {
                     <motion.div key={item} variants={itemVariant}>
                       <Link
                         href={`#${id}`}
+                        aria-current={active === id ? "true" : undefined}
+                        onClick={() => setSheetOpen(false)}
                         className={`text-lg tracking-widest uppercase transition hover:translate-x-1 ${
                           active === id ? "text-crimson" : "text-white/90"
                         }`}
