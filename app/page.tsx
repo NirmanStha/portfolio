@@ -1,3 +1,4 @@
+import BugSquash from "@/components/custom/BugSquash";
 import ContactForm from "@/components/custom/ContactForm";
 import Certifications from "@/components/custom/Certifications";
 import CustomCursor from "@/components/custom/Cursor";
@@ -58,6 +59,7 @@ export default function Home() {
           <SkillMemoryGame />
           <Experience />
           <Certifications />
+          <BugSquash />
           <div className="mt-12  md:px-0">
             <ContactForm />
           </div>
