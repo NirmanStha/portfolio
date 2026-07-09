@@ -47,7 +47,7 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group bg-surface-1 border-crimson/60 hover:shadow-crimson/15 flex items-start justify-between gap-4 rounded-xl border border-l-2 border-white/8 p-6 transition-shadow duration-300 hover:shadow-[0_20px_60px_-24px]"
+              className="group bg-surface-1 border-l-crimson/60 hover:shadow-crimson/15 flex items-start justify-between gap-4 rounded-xl border border-l-2 border-white/8 p-6 transition-shadow duration-300 hover:shadow-[0_20px_60px_-24px]"
             >
               <div>
                 <h3 className="font-medium text-white">{cert.title}</h3>
