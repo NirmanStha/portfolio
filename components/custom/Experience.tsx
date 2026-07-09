@@ -31,13 +31,13 @@ export default function Experience({
           <p className="text-[11px] font-medium tracking-[.18em] uppercase text-white/30 mb-3">
             Where I shipped
           </p>
-          <h2 className="font-serif text-[clamp(1.75rem,4.5vw,2.5rem)] text-white/90">
+          <h2 className="font-heading font-bold text-[clamp(1.75rem,4.5vw,2.5rem)] text-white/90">
             Selected experience
           </h2>
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative border-l border-white/10 pl-6 space-y-12">
+        <div className="relative border-l border-crimson/30 pl-6 space-y-12">
           {experiences.map((exp, idx) => {
             const isOpen = expanded[idx];
 
@@ -50,6 +50,10 @@ export default function Experience({
                 transition={{ delay: idx * 0.1 }}
                 className="relative"
               >
+                <span
+                  aria-hidden
+                  className="bg-crimson shadow-crimson/50 absolute top-2 -left-[31px] h-2.5 w-2.5 rounded-full shadow-[0_0_10px]"
+                />
                 {/* Header (clickable) */}
                 <Button
                   onClick={() => toggle(idx)}

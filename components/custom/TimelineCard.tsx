@@ -43,11 +43,11 @@ export default function TimelineCard({
     >
       {/* timeline removed (connector dot eliminated) */}
 
-      <Card className="rounded-2xl p-6 bg-gradient-to-tr from-[#07070a] to-[#0b0b11] border border-white/6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_-32px_rgba(99,102,241,0.08)]">
+      <Card className="rounded-2xl p-6 bg-gradient-to-tr from-[#07070a] to-[#0b0b11] border border-white/6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_28px_80px_-32px_rgba(224,35,78,0.15)]">
         <CardContent className="p-0">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <h3 className="font-serif text-lg md:text-xl text-white">
+              <h3 className="font-heading text-lg md:text-xl text-white">
                 {entry.company}
               </h3>
               <div className="text-sm text-white/60 mt-1">
@@ -91,7 +91,7 @@ export default function TimelineCard({
                   className="mt-1 flex-shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="5" cy="5" r="5" fill="#a78bfa" />
+                  <circle cx="5" cy="5" r="5" fill="#e0234e" />
                 </svg>
                 <span>{highlightText(b, globalTech)}</span>
               </li>
@@ -103,7 +103,7 @@ export default function TimelineCard({
               <button
                 onClick={toggle}
                 aria-expanded={expanded}
-                className="text-sm text-indigo-300 hover:underline focus:outline-none"
+                className="text-sm text-crimson hover:underline focus:outline-none"
               >
                 {expanded
                   ? "Show less"
