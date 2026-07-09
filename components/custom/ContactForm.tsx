@@ -86,7 +86,7 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-32 px-6 md:px-20 bg-white text-black rounded-t-[50px] md:rounded-t-[100px]"
+      className="angled-top bg-surface-1 px-6 py-32 md:px-20"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -95,13 +95,13 @@ export default function ContactForm() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-8xl font-serif mb-8 leading-tight"
+              className="font-heading mb-8 text-5xl leading-tight font-bold text-white md:text-7xl"
             >
               Let&apos;s make <br /> something <br />{" "}
-              <span className="italic opacity-50">great</span>.
+              <span className="text-crimson">great</span>.
             </motion.h2>
             <div className="space-y-4">
-              <p className="text-xl font-medium">nirmans39@gmail.com</p>
+              <p className="text-xl font-medium text-white">nirmans39@gmail.com</p>
               <div className="flex gap-6">
                 {socialLinks.map((link) => (
                   <a
@@ -109,7 +109,7 @@ export default function ContactForm() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer me"
-                    className="text-sm font-bold uppercase tracking-widest hover:opacity-50 transition-opacity"
+                    className="text-sm font-bold uppercase tracking-widest text-white/70 hover:text-crimson transition-colors"
                   >
                     {link.label}
                   </a>
@@ -122,7 +122,7 @@ export default function ContactForm() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-black text-white p-10 rounded-[40px] shadow-2xl"
+            className="bg-night border border-white/10 text-white p-8 md:p-10 rounded-3xl shadow-[0_40px_120px_-40px_rgba(224,35,78,0.25)]"
           >
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
@@ -136,7 +136,7 @@ export default function ContactForm() {
                     placeholder="John Doe"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-transparent border-b border-white/20 py-3 focus:border-white outline-none transition-colors"
+                    className="w-full bg-transparent border-b border-white/20 py-3 focus:border-crimson outline-none transition-colors"
                   />
                 </div>
                 <div className="space-y-2">
@@ -149,7 +149,7 @@ export default function ContactForm() {
                     placeholder="john@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-transparent border-b border-white/20 py-3 focus:border-white outline-none transition-colors"
+                    className="w-full bg-transparent border-b border-white/20 py-3 focus:border-crimson outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -163,7 +163,7 @@ export default function ContactForm() {
                   placeholder="Project Inquiry"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full bg-transparent border-b border-white/20 py-3 focus:border-white outline-none transition-colors"
+                  className="w-full bg-transparent border-b border-white/20 py-3 focus:border-crimson outline-none transition-colors"
                 />
               </div>
 
@@ -177,7 +177,7 @@ export default function ContactForm() {
                   placeholder="What's on your mind?"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-transparent border-b border-white/20 py-3 focus:border-white outline-none transition-colors resize-none"
+                  className="w-full bg-transparent border-b border-white/20 py-3 focus:border-crimson outline-none transition-colors resize-none"
                 />
               </div>
 
@@ -208,7 +208,7 @@ export default function ContactForm() {
               </div>
 
               <button
-                className="w-full py-6 bg-white text-black font-bold uppercase tracking-widest rounded-full hover:bg-slate-200 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-crimson hover:bg-crimson/90 hover:shadow-crimson/40 w-full cursor-pointer rounded-full py-5 font-bold tracking-widest text-white uppercase transition-all hover:shadow-[0_0_40px] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50"
                 type="submit"
                 disabled={status === "sending"}
               >

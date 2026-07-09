@@ -3,6 +3,7 @@ import ContactForm from "@/components/custom/ContactForm";
 import Certifications from "@/components/custom/Certifications";
 import CustomCursor from "@/components/custom/Cursor";
 import Experience from "@/components/custom/Experience";
+import Footer from "@/components/custom/Footer";
 import Hero from "@/components/custom/Hero";
 import IntroLoader from "@/components/custom/Intro";
 import Project from "@/components/custom/Project";
@@ -60,10 +61,9 @@ export default function Home() {
           <Experience />
           <Certifications />
           <BugSquash />
-          <div className="mt-12  md:px-0">
-            <ContactForm />
-          </div>
+          <ContactForm />
         </main>
+        <Footer />
       </div>
     </>
   );
