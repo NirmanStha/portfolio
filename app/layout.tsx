@@ -1,10 +1,14 @@
 import Schema from "@/components/Schema";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
 const siteName = "Nirman Shrestha";
 const siteDescription =
   "Nirman Shrestha is a frontend engineer building high-performance React and Next.js experiences with clean interfaces and thoughtful motion.";
@@ -130,8 +134,9 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-slate-950 font-sans antialiased",
+          "min-h-screen bg-night font-sans antialiased",
           inter.variable,
+          spaceGrotesk.variable,
         )}
       >
         {children}
