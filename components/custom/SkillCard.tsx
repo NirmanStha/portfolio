@@ -81,7 +81,7 @@ function SkillCard({ skill, index }: SkillCardProps) {
           alt={skill.name}
           width={52}
           height={52}
-          className="object-contain"
+          className={skill.invert ? "object-contain invert" : "object-contain"}
           unoptimized
         />
       </div>

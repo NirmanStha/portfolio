@@ -1,14 +1,18 @@
 import Schema from "@/components/Schema";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
 const siteName = "Nirman Shrestha";
 const siteDescription =
   "Nirman Shrestha is a frontend engineer building high-performance React and Next.js experiences with clean interfaces and thoughtful motion.";
-const fallbackSiteUrl = "https://nirman-shrestha.com.np";
+const fallbackSiteUrl = "https://www.nirman-shrestha.com.np";
 const siteUrlCandidate =
   process.env.NEXT_PUBLIC_SITE_URL ??
   process.env.VERCEL_PROJECT_PRODUCTION_URL ??
@@ -30,7 +34,6 @@ const siteUrl = (() => {
     return fallbackSiteUrl;
   }
 })();
-const siteImage = `${siteUrl}/og-image.svg`;
 const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE;
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -46,12 +49,15 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   applicationName: siteName,
+  // Twitter/OG images intentionally omitted here: the file-convention
+  // app/twitter-image.tsx and app/opengraph-image.tsx generate real PNGs
+  // (explicit URLs here would override them; the old og-image.svg is not
+  // renderable by social/search scrapers).
   twitter: {
     card: "summary_large_image",
     title: `${siteName} | Frontend Engineer`,
     description: siteDescription,
     creator: twitterHandle,
-    images: [`${siteUrl}/twitter-image.png`],
   },
   category: "portfolio",
   generator: "Next.js",
@@ -100,14 +106,6 @@ export const metadata: Metadata = {
     siteName,
     title: `${siteName} | Frontend Engineer`,
     description: siteDescription,
-    images: [
-      {
-        url: siteImage,
-        width: 1200,
-        height: 630,
-        alt: `${siteName} | Frontend Engineer`,
-      },
-    ],
   },
 
   manifest: "/site.webmanifest",
@@ -130,8 +128,9 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-slate-950 font-sans antialiased",
+          "min-h-screen bg-night font-sans antialiased",
           inter.variable,
+          spaceGrotesk.variable,
         )}
       >
         {children}

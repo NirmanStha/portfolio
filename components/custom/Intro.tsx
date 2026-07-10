@@ -1,53 +1,50 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 const IntroLoader: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(false), 2000);
+    const timer = setTimeout(
+      () => setIsVisible(false),
+      reducedMotion ? 300 : 1200,
+    );
     return () => clearTimeout(timer);
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 1 }}
-          exit={{
-            y: "-100%",
-            transition: { duration: 1, ease: [0.7, 0, 0.3, 1] },
-          }}
-          className="fixed inset-0 bg-white z-[200] flex items-center justify-center overflow-hidden"
+          exit={{ opacity: 0, transition: { duration: 0.5, ease: "easeOut" } }}
+          className="fixed inset-0 z-[200] flex items-center justify-center bg-night"
         >
-          <div className="relative">
+          <div className="relative flex items-center justify-center">
             <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-              className="absolute bottom-0 left-0 h-[2px] bg-black z-10"
+              aria-hidden
+              initial={{ scale: 0.6, opacity: 0.5 }}
+              animate={
+                reducedMotion
+                  ? { opacity: 0 }
+                  : { scale: [0.6, 1.2, 1.4], opacity: [0.5, 0.3, 0] }
+              }
+              transition={{
+                duration: reducedMotion ? 0.2 : 1.1,
+                ease: "easeOut",
+              }}
+              className="absolute h-40 w-40 rounded-full bg-crimson/40 blur-2xl"
             />
             <motion.h2
-              initial={{ y: 100, opacity: 0 }}
+              initial={{ y: 24, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 0.8,
-                delay: 0.2,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="text-4xl md:text-6xl font-serif text-black font-medium overflow-hidden px-4"
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="font-heading relative text-5xl font-bold text-white md:text-7xl"
             >
-              Nirman Shrestha.
+              NS<span className="text-crimson">.</span>
             </motion.h2>
           </div>
-
-          <motion.div
-            initial={{ scaleY: 1 }}
-            animate={{ scaleY: 0 }}
-            transition={{ duration: 0.8, delay: 1.5, ease: [0.7, 0, 0.3, 1] }}
-            className="absolute inset-0 bg-black origin-top opacity-10"
-          />
         </motion.div>
       )}
     </AnimatePresence>

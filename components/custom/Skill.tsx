@@ -17,18 +17,18 @@ const Skill = () => {
       ? SKILLS
       : SKILLS.filter((s) => s.category === activeCategory);
   return (
-    <section className="relative py-28 overflow-hidden ">
+    <div className="relative py-28 overflow-hidden">
       {/* ambient orbs */}
       <div
         className="pointer-events-none absolute -top-56 -right-28 w-125 h-125 rounded-full opacity-[0.11]"
         style={{
-          background: "radial-gradient(circle, #7c3aed, transparent 70%)",
+          background: "radial-gradient(circle, #e0234e, transparent 70%)",
         }}
       />
       <div
         className="pointer-events-none absolute -bottom-40 -left-24 w-95 h-95 rounded-full opacity-[0.10]"
         style={{
-          background: "radial-gradient(circle, #0d9488, transparent 70%)",
+          background: "radial-gradient(circle, #e0234e, transparent 70%)",
         }}
       />
 
@@ -44,8 +44,8 @@ const Skill = () => {
           <p className="text-[11px] font-medium tracking-[.18em] uppercase text-white/30 mb-3">
             Technical arsenal
           </p>
-          <h2 className="font-serif text-[clamp(2rem,5vw,3rem)] font-normal text-white/90 leading-[1.1]">
-            Built to ship. <em className="italic text-violet-400">Obsessed</em>{" "}
+          <h2 className="font-heading font-bold text-[clamp(2rem,5vw,3rem)] text-white/90 leading-[1.1]">
+            Built to ship. <em className="italic text-crimson">Obsessed</em>{" "}
             with craft.
           </h2>
         </motion.div>
@@ -60,7 +60,7 @@ const Skill = () => {
                 "px-4 py-1.5 rounded-full text-[12px] font-medium tracking-[.04em]",
                 "border transition-all duration-200 cursor-pointer",
                 activeCategory === cat
-                  ? "bg-violet-500/10 border-violet-400/40 text-violet-300"
+                  ? "bg-crimson/10 border-crimson/40 text-crimson-soft"
                   : "bg-white/3 border-white/[.07] text-white/50 hover:text-white/80 hover:border-white/20",
               ].join(" ")}
             >
@@ -85,43 +85,8 @@ const Skill = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* cta */}
-        {/* <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <p className="text-[13px] text-white/30 mb-4">
-            Impressed? Let&apos;s build something extraordinary together.
-          </p>
-          <a
-            href="mailto:you@example.com"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-[13px] font-medium text-violet-300 transition-all duration-300 hover:-translate-y-1"
-            style={{
-              background: "rgba(167,139,250,.1)",
-              border: "0.5px solid rgba(167,139,250,.35)",
-            }}
-          >
-            Start a conversation
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </a>
-        </motion.div> */}
       </div>
-    </section>
+    </div>
   );
 };
 

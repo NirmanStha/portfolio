@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       data-cursor="view"
     >
       {/* Index label */}
-      <span className="block text-[11px] font-medium tracking-widest text-muted-foreground mb-3 uppercase">
+      <span className="text-crimson-soft mb-3 block text-[11px] font-medium tracking-widest uppercase">
         {String(index + 1).padStart(2, "0")} —
       </span>
 
@@ -40,7 +40,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           "relative overflow-hidden rounded-[20px] border-0 bg-[#0a0a0f] p-0 aspect-video cursor-pointer",
           "transition-shadow duration-500",
           hovered
-            ? "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.13)]"
+            ? "shadow-[inset_0_0_0_1px_rgba(224,35,78,0.45),0_24px_80px_-24px_rgba(224,35,78,0.35)]"
             : "shadow-[inset_0_0_0_1px_transparent]",
         )}
       >
@@ -128,7 +128,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       <CardFooter className="mt-5 px-0 pb-0 flex items-center justify-between gap-4">
         <h3
           className={cn(
-            "font-serif text-[clamp(1.25rem,2.8vw,1.65rem)] font-normal leading-tight text-primary-foreground",
+            "font-heading text-[clamp(1.25rem,2.8vw,1.65rem)] font-normal leading-tight text-primary-foreground",
             "transition-[letter-spacing,font-style,transform] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]",
             hovered
               ? "italic tracking-[0.01em] translate-x-1.5"
@@ -143,8 +143,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             "srink-0 w-10 h-10 rounded-full flex items-center justify-center",
             "transition-[transform,background-color,border-color,color] duration-350 ease-[cubic-bezier(0.16,1,0.3,1)]",
             hovered
-              ? "translate-x-1 -translate-y-1 bg-foreground border-foreground text-background border"
-              : "translate-x-0 translate-y-0 bg-secondary border-border/50 text-foreground border ",
+              ? "bg-crimson border-crimson -translate-y-1 translate-x-1 border text-white"
+              : "bg-secondary border-border/50 text-foreground translate-x-0 translate-y-0 border",
           )}
         >
           <svg

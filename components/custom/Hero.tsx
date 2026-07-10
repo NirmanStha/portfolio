@@ -3,15 +3,11 @@ import React from "react";
 import { motion, Variants } from "motion/react";
 
 const Hero: React.FC = () => {
-  // Explicitly typing variants to avoid inference issues with cubic-bezier array (Easing)
   const container: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        delayChildren: 2.5,
-        staggerChildren: 0.1,
-      },
+      transition: { delayChildren: 1.2, staggerChildren: 0.1 },
     },
   };
 
@@ -27,9 +23,28 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center px-6 md:px-20 overflow-hidden"
+      className="bg-grid-faint relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-28 pb-12 md:px-20"
     >
-      <div className="max-w-7xl mx-auto w-full">
+      {/* crimson glow blob */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-40 right-[-10%] h-[34rem] w-[34rem] rounded-full opacity-25"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(224,35,78,0.55), transparent 65%)",
+        }}
+      />
+      {/* fade grid toward bottom */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 60%, #0a0a12 100%)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl">
         <motion.div
           variants={container}
           initial="hidden"
@@ -38,7 +53,7 @@ const Hero: React.FC = () => {
         >
           <motion.p
             variants={item}
-            className="text-indigo-400 font-medium tracking-widest uppercase text-sm md:text-base"
+            className="text-crimson-soft text-sm font-medium tracking-widest uppercase md:text-base"
           >
             Nirman Shrestha | React.js | Next.js | TypeScript | JavaScript
           </motion.p>
@@ -46,21 +61,21 @@ const Hero: React.FC = () => {
           <motion.h1
             variants={item}
             data-cursor="text"
-            className="text-5xl text-white md:text-8xl lg:text-9xl font-serif leading-[0.9] font-medium"
+            className="font-heading text-[clamp(3rem,10vw,8.5rem)] leading-[0.95] font-bold text-white"
           >
             Crafting <br />
-            <span className="italic text-slate-400">Digital</span> <br />
+            <span className="text-crimson">Digital</span> <br />
             Experiences.
           </motion.h1>
 
           <motion.div
             variants={item}
-            className="pt-10 flex flex-col md:flex-row md:items-end justify-between gap-10"
+            className="flex flex-col justify-between gap-10 pt-10 md:flex-row md:items-end"
           >
-            <p className="max-w-md text-slate-400 text-lg leading-relaxed">
-              I design and build performant web products as a frontend engineer,
-              with deep focus on React.js, Next.js, TypeScript, JavaScript, and
-              fluid interaction design.
+            <p className="max-w-md text-lg leading-relaxed text-slate-400">
+              I design and build performant web products as a frontend
+              engineer, with deep focus on React.js, Next.js, TypeScript,
+              JavaScript, and fluid interaction design.
             </p>
 
             <motion.div
@@ -71,11 +86,11 @@ const Hero: React.FC = () => {
               <a
                 href="#projects"
                 data-cursor="pointer"
-                className="px-8 py-4 bg-white text-black font-medium text-sm tracking-widest uppercase rounded-full transition-transform"
+                className="bg-crimson rounded-full px-8 py-4 text-sm font-medium tracking-widest text-white uppercase transition-transform"
               >
                 View Works
               </a>
-              <div className="absolute inset-0 bg-white/20 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-500 -z-10" />
+              <div className="bg-crimson/40 absolute inset-0 -z-10 scale-100 rounded-full blur-xl transition-transform duration-500 group-hover:scale-150" />
             </motion.div>
           </motion.div>
         </motion.div>
@@ -84,8 +99,8 @@ const Hero: React.FC = () => {
       <motion.div
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
-        transition={{ delay: 3, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute right-0 bottom-0 w-px h-32 bg-indigo-500/50 origin-top hidden md:block"
+        transition={{ delay: 1.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="bg-crimson/50 absolute right-0 bottom-0 hidden h-32 w-px origin-top md:block"
       />
     </section>
   );

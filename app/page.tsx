@@ -1,15 +1,22 @@
+import BugSquash from "@/components/custom/BugSquash";
 import ContactForm from "@/components/custom/ContactForm";
+import Certifications from "@/components/custom/Certifications";
 import CustomCursor from "@/components/custom/Cursor";
 import Experience from "@/components/custom/Experience";
+import Footer from "@/components/custom/Footer";
 import Hero from "@/components/custom/Hero";
 import IntroLoader from "@/components/custom/Intro";
 import Project from "@/components/custom/Project";
-import Skill from "@/components/custom/Skill";
+import SkillMemoryGame from "@/components/custom/SkillMemoryGame";
 import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Frontend Engineer Portfolio",
+  // Name-first title: for the "Nirman Shrestha" name query, the exact name
+  // must lead the title, not trail it via the layout's "%s | name" template.
+  title: {
+    absolute: "Nirman Shrestha | Frontend Engineer — React & Next.js",
+  },
   description:
     "Portfolio of Nirman Shrestha, a frontend engineer focused on performant React and Next.js experiences with verified certifications in Advanced React and Web Design.",
   keywords: [
@@ -54,43 +61,13 @@ export default function Home() {
           </h1>
           <Hero />
           <Project />
-          <Skill />
+          <SkillMemoryGame />
           <Experience />
-          <div className="certification ">
-            <div className="max-w-7xl px-6 md:px-20 mx-auto">
-              <h2 className="text-3xl  text-white font-semibold mb-4">
-                Certifications
-              </h2>
-              <div>
-                <ul className="list-disc list-inside text-white">
-                  <li>
-                    <a
-                      href="https://coursera.org/share/16b4cdfa35e7ae0228d70a29fa73c331"
-                      target="_blank"
-                      rel="noopener noreferrer me"
-                      className=" hover:text-gray-300 transition-colors"
-                    >
-                      Advance React - Issued by Meta on Coursera
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://broadwayinfosys.com/certificate-verification-code/eyJpdiI6InhkMDZJMWR0ZUtJRTJ4T3ptZ0pLMUE9PSIsInZhbHVlIjoiaEdZOFQ2eDBXL0I4bFFkZWRpd3ZYQT09IiwibWFjIjoiNTJjNDc4MzFkNTEzOTUzYjk3MTUwMzQ4ZDBmYThkZDJiMGNmOGI1NjE2NjE2ZjQ2YzUwM2QzOTcxZjVmOTM3YyIsInRhZyI6IiJ9"
-                      target="_blank"
-                      rel="noopener noreferrer me"
-                      className=" hover:text-gray-300 transition-colors"
-                    >
-                      Web Design Certification - Issued by Broadway Infosys
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="mt-12  md:px-0">
-            <ContactForm />
-          </div>
+          <Certifications />
+          <BugSquash />
+          <ContactForm />
         </main>
+        <Footer />
       </div>
     </>
   );
