@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({
 const siteName = "Nirman Shrestha";
 const siteDescription =
   "Nirman Shrestha is a frontend engineer building high-performance React and Next.js experiences with clean interfaces and thoughtful motion.";
-const fallbackSiteUrl = "https://nirman-shrestha.com.np";
+const fallbackSiteUrl = "https://www.nirman-shrestha.com.np";
 const siteUrlCandidate =
   process.env.NEXT_PUBLIC_SITE_URL ??
   process.env.VERCEL_PROJECT_PRODUCTION_URL ??
