@@ -18,6 +18,8 @@ export interface Experience {
 export interface Skill {
   name: string;
   icon?: string;
+  /** Monochrome dark logo — render with CSS invert on dark backgrounds */
+  invert?: boolean;
   color?: string;
   shadow?: string;
   glow?: string;

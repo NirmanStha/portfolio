@@ -88,7 +88,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Next.js",
     category: "Frontend",
-
+    invert: true,
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     color: "rgba(255,255,255,.5)",
     shadow: "rgba(255,255,255,.12)",
@@ -124,7 +124,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Framer Motion",
     category: "Creative",
-
+    invert: true,
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg",
     color: "#a78bfa",
     shadow: "rgba(167,139,250,.22)",
@@ -172,7 +172,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Express.js",
     category: "Backend",
-
+    invert: true,
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
     color: "rgba(255,255,255,.5)",
     shadow: "rgba(255,255,255,.1)",
@@ -236,7 +236,7 @@ export const SKILLS: Skill[] = [
     name: "GSAP",
     category: "Creative",
 
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gsap/gsap-original.svg",
+    icon: `data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="16" fill="#111827"/><circle cx="32" cy="32" r="22" fill="none" stroke="#88ce02" stroke-width="2.5" opacity="0.35"/><text x="32" y="38" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#a6e830">GSAP</text></svg>')}`,
     color: "#88ce02",
     shadow: "rgba(136,206,2,.22)",
     glow: "rgba(136,206,2,.13)",

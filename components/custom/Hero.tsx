@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="bg-grid-faint relative flex min-h-screen flex-col justify-center overflow-hidden px-6 md:px-20"
+      className="bg-grid-faint relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-28 pb-12 md:px-20"
     >
       {/* crimson glow blob */}
       <div

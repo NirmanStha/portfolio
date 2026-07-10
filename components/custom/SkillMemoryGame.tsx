@@ -17,8 +17,7 @@ const PAIR_NAMES = [
   "Redux Toolkit",
 ];
 
-const iconFor = (name: string) =>
-  SKILLS.find((s) => s.name === name)?.icon as string;
+const skillFor = (name: string) => SKILLS.find((s) => s.name === name);
 
 export default function SkillMemoryGame() {
   const [deck, setDeck] = useState<MemoryCard[]>([]);
@@ -107,12 +106,13 @@ export default function SkillMemoryGame() {
                       className="relative h-full w-full"
                       style={{ transformStyle: "preserve-3d" }}
                     >
-                      {/* back */}
+                      {/* back — opacity toggles in both motion modes so the
+                          "?" can never bleed through a mid-flip face */}
                       <div
                         className="bg-surface-1 border-crimson/20 absolute inset-0 flex items-center justify-center rounded-xl border transition-opacity duration-300"
                         style={{
                           backfaceVisibility: "hidden",
-                          opacity: reducedMotion && isUp ? 0 : 1,
+                          opacity: isUp ? 0 : 1,
                         }}
                       >
                         <span className="text-crimson/60 font-heading text-xl font-bold">
@@ -121,19 +121,23 @@ export default function SkillMemoryGame() {
                       </div>
                       {/* face */}
                       <div
-                        className="absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 p-2 transition-opacity duration-300"
+                        className="bg-surface-1 absolute inset-0 flex flex-col items-center justify-center gap-2 rounded-xl border border-white/10 p-2 transition-opacity duration-300"
                         style={{
                           backfaceVisibility: "hidden",
                           transform: reducedMotion ? "none" : "rotateY(180deg)",
-                          opacity: reducedMotion && !isUp ? 0 : 1,
+                          opacity: isUp ? 1 : 0,
                         }}
                       >
                         <Image
-                          src={iconFor(card.skillName)}
+                          src={skillFor(card.skillName)?.icon as string}
                           alt={card.skillName}
                           width={36}
                           height={36}
-                          className="object-contain"
+                          className={
+                            skillFor(card.skillName)?.invert
+                              ? "object-contain invert"
+                              : "object-contain"
+                          }
                           unoptimized
                         />
                         <span className="text-[10px] leading-tight text-white/80">
