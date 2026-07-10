@@ -12,7 +12,11 @@ import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Frontend Engineer Portfolio",
+  // Name-first title: for the "Nirman Shrestha" name query, the exact name
+  // must lead the title, not trail it via the layout's "%s | name" template.
+  title: {
+    absolute: "Nirman Shrestha | Frontend Engineer — React & Next.js",
+  },
   description:
     "Portfolio of Nirman Shrestha, a frontend engineer focused on performant React and Next.js experiences with verified certifications in Advanced React and Web Design.",
   keywords: [

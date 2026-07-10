@@ -1,4 +1,4 @@
-import { Person, WebSite } from "schema-dts";
+import { Person, ProfilePage, WebSite } from "schema-dts";
 import {
   NEXT_PUBLIC_GITHUB_URL,
   NEXT_PUBLIC_LINKEDIN_URL,
@@ -32,24 +32,21 @@ const personSchema: Person = {
   "@id": `${NEXT_PUBLIC_SITE_URL}/#person`,
   "@type": "Person",
   name: "Nirman Shrestha",
+  alternateName: ["Nirman", "NirmanStha", "Nirman Stha"],
+  givenName: "Nirman",
+  familyName: "Shrestha",
   url: NEXT_PUBLIC_SITE_URL,
+  email: "mailto:nirmans39@gmail.com",
   sameAs: [NEXT_PUBLIC_GITHUB_URL, NEXT_PUBLIC_LINKEDIN_URL],
   jobTitle: "Frontend Engineer",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lalitpur",
+    addressCountry: "NP",
+  },
   hasOccupation: {
     "@type": "Occupation",
     name: "Frontend Engineer",
-    occupationLocation: {
-      "@type": "City",
-      name: "Remote",
-    },
-    estimatedSalary: {
-      "@type": "MonetaryAmountDistribution",
-      currency: "USD",
-    },
-  },
-  worksFor: {
-    "@type": "Organization",
-    name: "Nirman Shrestha",
   },
   hasCredential: certifications,
   knowsAbout: [
@@ -68,15 +65,28 @@ const websiteSchema: WebSite = {
   "@id": `${NEXT_PUBLIC_SITE_URL}/#website`,
   "@type": "WebSite",
   name: "Nirman Shrestha | Frontend Engineer",
+  alternateName: "Nirman Shrestha Portfolio",
+  inLanguage: "en",
   url: NEXT_PUBLIC_SITE_URL,
   author: {
     "@id": `${NEXT_PUBLIC_SITE_URL}/#person`,
   },
 };
 
+// Google's Profile Page structured data: tells the crawler this page's main
+// entity IS the person, which is exactly what a name query should resolve to.
+const profilePageSchema: ProfilePage = {
+  "@id": `${NEXT_PUBLIC_SITE_URL}/#profilepage`,
+  "@type": "ProfilePage",
+  url: NEXT_PUBLIC_SITE_URL,
+  name: "Nirman Shrestha | Frontend Engineer",
+  isPartOf: { "@id": `${NEXT_PUBLIC_SITE_URL}/#website` },
+  mainEntity: { "@id": `${NEXT_PUBLIC_SITE_URL}/#person` },
+};
+
 const jsonLd = {
   "@context": "https://schema.org",
-  "@graph": [personSchema, websiteSchema],
+  "@graph": [personSchema, websiteSchema, profilePageSchema],
 };
 
 export default function Schema() {

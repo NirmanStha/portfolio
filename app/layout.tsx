@@ -34,7 +34,6 @@ const siteUrl = (() => {
     return fallbackSiteUrl;
   }
 })();
-const siteImage = `${siteUrl}/og-image.svg`;
 const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE;
 
 const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -50,12 +49,15 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   applicationName: siteName,
+  // Twitter/OG images intentionally omitted here: the file-convention
+  // app/twitter-image.tsx and app/opengraph-image.tsx generate real PNGs
+  // (explicit URLs here would override them; the old og-image.svg is not
+  // renderable by social/search scrapers).
   twitter: {
     card: "summary_large_image",
     title: `${siteName} | Frontend Engineer`,
     description: siteDescription,
     creator: twitterHandle,
-    images: [`${siteUrl}/twitter-image.png`],
   },
   category: "portfolio",
   generator: "Next.js",
@@ -104,14 +106,6 @@ export const metadata: Metadata = {
     siteName,
     title: `${siteName} | Frontend Engineer`,
     description: siteDescription,
-    images: [
-      {
-        url: siteImage,
-        width: 1200,
-        height: 630,
-        alt: `${siteName} | Frontend Engineer`,
-      },
-    ],
   },
 
   manifest: "/site.webmanifest",
