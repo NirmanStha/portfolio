@@ -60,7 +60,7 @@ const Skill = () => {
                 "px-4 py-1.5 rounded-full text-[12px] font-medium tracking-[.04em]",
                 "border transition-all duration-200 cursor-pointer",
                 activeCategory === cat
-                  ? "bg-crimson/10 border-crimson/40 text-crimson"
+                  ? "bg-crimson/10 border-crimson/40 text-crimson-soft"
                   : "bg-white/3 border-white/[.07] text-white/50 hover:text-white/80 hover:border-white/20",
               ].join(" ")}
             >

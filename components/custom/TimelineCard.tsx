@@ -103,7 +103,7 @@ export default function TimelineCard({
               <button
                 onClick={toggle}
                 aria-expanded={expanded}
-                className="text-sm text-crimson hover:underline focus:outline-none"
+                className="text-crimson-soft text-sm hover:underline focus:outline-none"
               >
                 {expanded
                   ? "Show less"

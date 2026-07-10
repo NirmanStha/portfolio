@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
         >
           <motion.p
             variants={item}
-            className="text-crimson text-sm font-medium tracking-widest uppercase md:text-base"
+            className="text-crimson-soft text-sm font-medium tracking-widest uppercase md:text-base"
           >
             Nirman Shrestha | React.js | Next.js | TypeScript | JavaScript
           </motion.p>

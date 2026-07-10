@@ -7,7 +7,7 @@ const Footer = () => (
       </p>
       <p>
         Built with Next.js — and a few{" "}
-        <a href="#play" className="text-crimson underline-offset-4 hover:underline">
+        <a href="#play" className="text-crimson-soft underline-offset-4 hover:underline">
           bugs left to squash
         </a>
         .

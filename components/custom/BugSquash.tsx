@@ -165,7 +165,7 @@ export default function BugSquash() {
               Score: <span className="text-white">{score}</span>
             </span>
             <span>
-              Best: <span className="text-crimson">{best}</span>
+              Best: <span className="text-crimson-soft">{best}</span>
             </span>
             {status === "running" && (
               <span>

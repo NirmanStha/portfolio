@@ -111,7 +111,7 @@ const Navbar: React.FC = () => {
                         aria-current={active === id ? "true" : undefined}
                         onClick={() => setSheetOpen(false)}
                         className={`text-lg tracking-widest uppercase transition hover:translate-x-1 ${
-                          active === id ? "text-crimson" : "text-white/90"
+                          active === id ? "text-crimson-soft" : "text-white/90"
                         }`}
                       >
                         {item}

@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       data-cursor="view"
     >
       {/* Index label */}
-      <span className="text-crimson mb-3 block text-[11px] font-medium tracking-widest uppercase">
+      <span className="text-crimson-soft mb-3 block text-[11px] font-medium tracking-widest uppercase">
         {String(index + 1).padStart(2, "0")} —
       </span>
 

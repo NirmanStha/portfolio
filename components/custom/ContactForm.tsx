@@ -109,7 +109,7 @@ export default function ContactForm() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer me"
-                    className="text-sm font-bold uppercase tracking-widest text-white/70 hover:text-crimson transition-colors"
+                    className="hover:text-crimson-soft text-sm font-bold tracking-widest text-white/70 uppercase transition-colors"
                   >
                     {link.label}
                   </a>

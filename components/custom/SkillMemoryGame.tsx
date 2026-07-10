@@ -151,7 +151,7 @@ export default function SkillMemoryGame() {
               <span>Time: {seconds}s</span>
               <button
                 onClick={() => setRevealed(true)}
-                className="text-crimson cursor-pointer underline-offset-4 hover:underline"
+                className="text-crimson-soft cursor-pointer underline-offset-4 hover:underline"
               >
                 Just show me the skills
               </button>
@@ -169,7 +169,7 @@ export default function SkillMemoryGame() {
               {complete && (
                 <p className="pt-16 text-center text-sm text-slate-400">
                   Matched in {seconds}s and {moves} moves —{" "}
-                  <span className="text-crimson">my stack, now yours.</span>
+                  <span className="text-crimson-soft">my stack, now yours.</span>
                 </p>
               )}
               <Skill />
